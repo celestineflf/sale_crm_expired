@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <record id="crm_case_form_view_exp" model="ir.ui.view">
+        <field name="name">crm.lead.oppor.exp.inherited.crm</field>
+        <field name="model">crm.lead</field>
+        <field name="inherit_id" ref="crm.crm_lead_view_form"/>
+        <field name="arch" type="xml">
+            <button name="action_schedule_meeting" position="after">
+                <button class="oe_stat_button" type="object" attrs="{'invisible': ['|', ('quotation_count_ex', '=', 0), ('type', '=', 'lead')]}"
+                    name="action_view_expired" icon="fa-clock-o">
+                    <div class="o_field_widget o_stat_info">
+                        <field name="quotation_count_ex" widget="statinfo" string="Expired"/>
+                    </div>
+                </button>
+            </button>
+        </field>
+    </record>
+</odoo>
